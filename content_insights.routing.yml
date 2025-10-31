@@ -1,0 +1,7 @@
+content_insights.settings_form:
+  path: '/admin/config/content/content-insights'
+  defaults:
+    _form: '\Drupal\content_insights\Form\ContentInsightsSettingsForm'
+    _title: 'Content Insights Settings'
+  requirements:
+    _permission: 'administer site configuration'

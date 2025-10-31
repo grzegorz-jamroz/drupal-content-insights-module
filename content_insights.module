@@ -1,0 +1,41 @@
+<?php
+
+declare(strict_types=1);
+
+use \Drupal\block\Entity\Block;
+
+/**
+ * @file
+ * Primary module file for the Content Insights module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function content_insights_install(): void
+{
+  $themeName = \Drupal::config('system.theme')->get('default');
+  $blockValues = [
+    'id' => sprintf('%s_contentinsightsdashboard', $themeName),
+    'theme' => $themeName,
+    'region' => 'content',
+    'plugin' => 'content_insights_dashboard_block',
+    'settings' => [
+      'label' => 'Content Insights Dashboard',
+      'label_display' => 'visible'
+    ],
+    'visibility' => [
+      'request_path' => [
+        'id' => 'request_path',
+        'negate' => false,
+        'pages' => "/node/add/*\r\n/node/*/edit",
+      ],
+      'response_status' => [
+        'id' => 'response_status',
+        'negate' => false,
+        'status_codes' => [200],
+      ]
+    ],
+  ];
+  Block::create($blockValues)->save();
+}

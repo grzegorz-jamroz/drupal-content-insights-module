@@ -1,0 +1,6 @@
+dashboard:
+  version: 1.x
+  js:
+    js/content-insights.js: {}
+  dependencies:
+    - core/drupal

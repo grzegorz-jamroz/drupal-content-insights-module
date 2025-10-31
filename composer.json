@@ -1,0 +1,13 @@
+{
+  "name": "grzegorz-jamroz/drupal-content-insights-module",
+  "description": "Module provides content editors with useful, real-time feedback on the content they are writing, directly on the node edit form.",
+  "type": "drupal-custom-module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Grzegorz Jamróz",
+      "email": "grzegorz.jamrooz@gmail.com"
+    }
+  ]
+}

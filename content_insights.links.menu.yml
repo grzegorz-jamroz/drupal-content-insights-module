@@ -1,0 +1,6 @@
+content_insights.settings_form:
+  title: 'Content Insights Settings'
+  description: 'Configure target word count for content insights.'
+  parent: system.admin_config_content
+  route_name: content_insights.settings_form
+  weight: 100

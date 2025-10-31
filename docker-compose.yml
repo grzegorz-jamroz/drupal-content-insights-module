@@ -1,0 +1,44 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: content-insights-drupal-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+#    volumes:
+#      - ./docker/db:/var/lib/mysql
+    networks:
+      - content-insights-drupal-network
+
+  app:
+    environment:
+      - PHP_IDE_CONFIG=serverName=app
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: content-insights-drupal-app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./config:/var/www/html/custom/module/content-insights/config
+      - ./js:/var/www/html/custom/module/content-insights/js
+      - ./src:/var/www/html/custom/module/content-insights/src
+      - ./templates:/var/www/html/custom/module/content-insights/templates
+      - ./content_insights.info.yml:/var/www/html/custom/module/content-insights/content_insights.info.yml
+      - ./content_insights.libraries.yml:/var/www/html/custom/module/content-insights/content_insights.libraries.yml
+      - ./content_insights.links.menu.yml:/var/www/html/custom/module/content-insights/content_insights.links.menu.yml
+      - ./content_insights.module:/var/www/html/custom/module/content-insights/content_insights.module
+      - ./content_insights.routing.yml:/var/www/html/custom/module/content-insights/content_insights.routing.yml
+      - ./composer.json:/var/www/html/custom/module/content-insights/composer.json
+#      - ./docker/drupal:/var/www/html/web/sites
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
+    networks:
+      - content-insights-drupal-network
+
+networks:
+  content-insights-drupal-network:

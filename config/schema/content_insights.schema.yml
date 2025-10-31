@@ -1,0 +1,7 @@
+content_insights.settings:
+  type: config_object
+  label: 'Content Insights Settings'
+  mapping:
+    target_word_count:
+      type: integer
+      label: 'Target word count'

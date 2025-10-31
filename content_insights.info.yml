@@ -1,0 +1,5 @@
+name: Content Insights
+type: module
+description: Module provides content editors with useful, real-time feedback on the content they are writing, directly on the node edit form.
+package: Custom
+core_version_requirement: ^11
