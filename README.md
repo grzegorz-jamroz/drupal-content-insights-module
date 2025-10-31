@@ -32,7 +32,7 @@
 
 3.  Visit: http://localhost:8080/node/add/article and try to write something in `Body` text editor.
 
-![Usage example](docs/assets/usage-example.png "Usage example")
+    ![Usage example](docs/assets/usage-example.png "Usage example")
 
 ---
 
